@@ -1,0 +1,44 @@
+.mid_container{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);   
+    width: 1000px;
+    background-color: var(--dark_gray1);
+    height: 100vh;
+    border-radius: 6px;
+    padding: 2rem;
+}
+
+
+.guide_title{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);   
+    width: 1000px;
+    padding: 1rem 0;
+}
+
+.hover_image_containers{
+    cursor: pointer;
+
+}
+
+.hover_image_containers:hover > .hover_image_component{
+    display: block;
+
+}
+
+.guide_part_block{
+
+}
+
+.guide_part_block_header{
+    font-size: 2rem;
+}
+
+.guide_bottom_discription{
+    margin-top: 1rem;
+}
+.guide_span{
+    display: block;
+}

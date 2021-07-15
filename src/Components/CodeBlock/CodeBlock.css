@@ -1,0 +1,31 @@
+.code_block_container{
+    box-shadow: var(--code_blocks_shadow);
+    width: 60%;
+    min-width: fit-content;
+}
+
+.code_line_container{
+    padding:5px 15px;
+    border-radius: 6px;
+}
+
+
+.code_line_container:hover{
+    background-color: var(--dark_gray);
+}
+
+.copy_button{
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: var(--code_blocks);
+    color: var(--white_font_color);
+    border: none;
+    border-radius: 5px;
+    padding: 4px 7px;
+    
+}
+
+.copy_button:active{
+    background-color: var(--white_font_color);
+    color: var(--code_blocks) !important;
+}

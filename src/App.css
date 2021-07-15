@@ -1,0 +1,21 @@
+body{
+  margin: 0;
+  background-color: var(--dark_gray);
+  font-family: 'Open Sans', sans-serif;
+  color: var(--white_font_color);
+
+
+}
+
+
+*{
+  box-sizing: border-box;
+}
+
+:root{
+  --dark_gray:#262626;
+  --dark_gray1:#131417;
+  --code_blocks:#141517;
+  --code_blocks_shadow:0 4px 30px rgb(0 0 0 / 50%);
+  --white_font_color:#dfe6f4;
+}

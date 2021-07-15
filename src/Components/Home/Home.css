@@ -1,12 +1,12 @@
 .mid_container{
-    position: absolute;
+    position: relative;
     left: 50%;
     transform: translateX(-50%);   
     width: 1000px;
-    background-color: var(--dark_gray1);
-    height: 100vh;
+    background-color: var(--dark_gray);
     border-radius: 6px;
     padding: 2rem;
+    margin-bottom: 7rem;
 }
 
 
@@ -20,7 +20,7 @@
 
 .hover_image_containers{
     cursor: pointer;
-
+    color: var(--ligher_text_color);
 }
 
 .hover_image_containers:hover > .hover_image_component{

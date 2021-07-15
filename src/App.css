@@ -1,10 +1,8 @@
 body{
   margin: 0;
-  background-color: var(--dark_gray);
+  background-color: var(--dark_gray1);
   font-family: 'Open Sans', sans-serif;
   color: var(--white_font_color);
-
-
 }
 
 
@@ -18,4 +16,5 @@ body{
   --code_blocks:#141517;
   --code_blocks_shadow:0 4px 30px rgb(0 0 0 / 50%);
   --white_font_color:#dfe6f4;
+  --ligher_text_color:#90e0f8;
 }

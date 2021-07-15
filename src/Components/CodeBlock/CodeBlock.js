@@ -13,12 +13,16 @@ export default function CodeBlock(props) {
   return (
     <div className="code_block_container">
       {props.lines.map((line) => {
-        return <div key={line} className="code_line_container">
-          <span>{line}</span>
-          <button className="copy_button" onClick={copyToClipBoard}>
-            Copy
-          </button>
-        </div>;
+        return (
+          <div key={line} className="code_line_container">
+            <div>
+              <span>{line}</span>
+            </div>
+            <button className="copy_button" onClick={copyToClipBoard}>
+              Copy
+            </button>
+          </div>
+        );
       })}
     </div>
   );

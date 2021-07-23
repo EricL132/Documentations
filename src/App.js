@@ -3,7 +3,7 @@ import "./App.css";
 import uwsgiLinux from "./Components/uwsgiLinux/uwsgiLinux";
 import Home from "./Components/Home/Home";
 import {BrowserRouter,Route,Switch} from 'react-router-dom'
-import Gunicorn from "./gunicornLinux/gunicornLunux";
+import Gunicorn from "./Components/gunicornLinux/gunicornLunux";
 function App() {
   return (
       // <uwsgiLinux></uwsgiLinux>

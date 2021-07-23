@@ -11,6 +11,7 @@ export default function CodeBlock(props) {
     tempEle.remove();
   }
   return (
+    
     <div className="code_block_container">
       {props.lines.map((line) => {
         return (

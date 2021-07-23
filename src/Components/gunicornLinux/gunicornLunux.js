@@ -21,7 +21,7 @@ export default function Gunicorn() {
           ]}
         ></SectionComp>
         <SectionComp
-          title="2. Update Python to at Least Python3.6"
+          title="3. Update Python to at Least Python3.6"
           lines={[
             "sudo add-apt-repository ppa:deadsnakes/ppa",
             "sudo apt update",
@@ -30,7 +30,7 @@ export default function Gunicorn() {
         ></SectionComp>
 
         <SectionComp
-          title="3. Setting Up Postgres"
+          title="4. Setting Up Postgres"
           desc={
             <>
               <CodeBlock
@@ -51,7 +51,7 @@ export default function Gunicorn() {
 
 
         <SectionComp
-          title="4. Setup Project And Virutal Environment"
+          title="5. Setup Project And Virutal Environment"
           lines={[
             "mkdir myProjectName",
             "cd projectName",
@@ -76,7 +76,7 @@ export default function Gunicorn() {
         ></SectionComp>
 
         <SectionComp
-          title="5. Create Django Project"
+          title="6. Create Django Project"
           lines={[
             "pip install Django",
             "django-admin startproject myProjectName",

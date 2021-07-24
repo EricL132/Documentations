@@ -11,20 +11,25 @@ export default function CodeBlock(props) {
     tempEle.remove();
   }
   return (
-    
-    <div className="code_block_container">
-      {props.lines.map((line) => {
-        return (
-          <div key={line} className="code_line_container">
-            <div>
-              <span>{line}</span>
-            </div>
-            <button className="copy_button" onClick={copyToClipBoard}>
-              Copy
-            </button>
-          </div>
-        );
-      })}
-    </div>
+    <>
+      {props.lines && (
+        <div className="code_block_container">
+          {props.lines.map((line) => {
+            return (
+              <div key={line} className="code_line_container">
+                {props.linuxc && <div className="linuxc_sign">$</div>}
+
+                <div>
+                  <span>{line}</span>
+                </div>
+                <button className="copy_button" onClick={copyToClipBoard}>
+                  Copy
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </>
   );
 }

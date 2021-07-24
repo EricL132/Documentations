@@ -2,6 +2,7 @@ import SectionComp from "../SectionComp/SectionComp";
 import CodeBlock from "../CodeBlock/CodeBlock";
 import OneLineSpan from "../OneLineSpan/OneLineSpan";
 import HoverPicture from "../HoverPicture/Hover";
+import BigBlock from "../BigBlock/BigBlock";
 export default function Gunicorn() {
   return (
     <>
@@ -10,18 +11,17 @@ export default function Gunicorn() {
       </h1>
       <div className="mid_container">
         <SectionComp
-          title="1. Update Server"
+          title="Update Server"
           lines={["sudo apt update", "sudo apt upgrade"]}
         ></SectionComp>
         <SectionComp
-          title="2. Install Required Packages"
+          title="Install Required Packages"
           lines={[
-            "sudo apt update",
             "sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl",
           ]}
         ></SectionComp>
         <SectionComp
-          title="3. Update Python to at Least Python3.6"
+          title="Update Python to at Least Python3.6"
           lines={[
             "sudo add-apt-repository ppa:deadsnakes/ppa",
             "sudo apt update",
@@ -30,15 +30,15 @@ export default function Gunicorn() {
         ></SectionComp>
 
         <SectionComp
-          title="4. Setting Up Postgres"
+          title="Setting Up Postgres"
           desc={
             <>
               <CodeBlock
                 lines={[
                   "sudo -u postgres psql",
-                  "CREATE DATABASE databasename",
-                  "CREATE USER databaseuser WITH PASSWORD 'password'",
-                  "GRANT ALL PRIVILEGES ON DATABASE databasename TO databaseuser",
+                  "CREATE DATABASE databasename;",
+                  "CREATE USER databaseuser WITH PASSWORD 'password';",
+                  "GRANT ALL PRIVILEGES ON DATABASE databasename TO databaseuser;",
                   "\\q",
                 ]}
               ></CodeBlock>
@@ -51,10 +51,10 @@ export default function Gunicorn() {
 
 
         <SectionComp
-          title="5. Setup Project And Virutal Environment"
+          title="Setup Project And Virutal Environment"
           lines={[
             "mkdir myProjectName",
-            "cd projectName",
+            "cd myProjectName",
             "sudo apt install python3.6-venv",
             "python3.6 -m venv env",
             "source env/bin/activate",
@@ -76,16 +76,42 @@ export default function Gunicorn() {
         ></SectionComp>
 
         <SectionComp
-          title="6. Create Django Project"
+          title="Create Django Project"
           lines={[
-            "pip install Django",
-            "django-admin startproject myProjectName",
-            "mv /home/eric/myProjectName/myProjectName /home/eric/myProjectName"
+            "pip install django",
+            "django-admin startproject myProjectName .",
           ]}
           desc={
-            <OneLineSpan line="Install django, create project, move whole project one directory out"></OneLineSpan>
+            <OneLineSpan line="Install django, create project"></OneLineSpan>
           }
         ></SectionComp>
+
+
+        <SectionComp title="Setup Django Project" lines={["nano myProjectName/settings.py"]} desc={
+          <>
+            <OneLineSpan line="Inside settings.py file inside django project edit below lines"></OneLineSpan>
+            <CodeBlock lines={["ALLOWED_HOSTS = ['serverip', 'domain.com','.domain.com', 'localhost']"]}></CodeBlock>
+            <OneLineSpan line=".domain includes all subdomains" desc={
+              <HoverPicture title="Image" picture="https://i.gyazo.com/9f1405553bef270e35feb9628379bbd1.png" sameline="sameline_image"></HoverPicture>
+            }></OneLineSpan>
+            <BigBlock block={
+`
+DATABASES = {
+  'default': {
+      'ENGINE': 'django.db.backends.postgresql_psycopg2',
+      'NAME': 'databasename',
+      'USER': 'databaseuser ',
+      'PASSWORD': 'password',
+      'HOST': 'localhost',
+      'PORT': '',
+  }
+}
+`}></BigBlock>
+<HoverPicture title="Image" picture="https://i.gyazo.com/70927a342714624ed9f1f46be5715d30.png"></HoverPicture>
+<CodeBlock lines={["import os","STATIC_ROOT = os.path.join(BASE_DIR, 'static/')"]}></CodeBlock>
+<HoverPicture title="Image" picture="https://i.gyazo.com/bc403d508c2b89b38d67a987a01f54aa.png"></HoverPicture>
+          </>
+        }></SectionComp>
       </div>
     </>
   );

@@ -1,7 +1,6 @@
 .hover_image_component{
     display: none;
 
-
 }
 
 .sameline_image{
@@ -12,4 +11,5 @@
 .hover_image_component_image{
     position: absolute;
     right: 2rem;
+    z-index: 1;
 }

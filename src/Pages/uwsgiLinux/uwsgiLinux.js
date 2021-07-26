@@ -1,9 +1,9 @@
 import "./uwsgiLinux.css";
-import HoverPicture from "../HoverPicture/Hover";
-import CodeBlock from "../CodeBlock/CodeBlock";
-import BigBlock from "../BigBlock/BigBlock";
-import SectionComp from "../SectionComp/SectionComp";
-import OneLineSpan from "../OneLineSpan/OneLineSpan";
+import HoverPicture from "../../Components/HoverPicture/Hover";
+import CodeBlock from "../../Components/CodeBlock/CodeBlock";
+import BigBlock from "../../Components/BigBlock/BigBlock";
+import SectionComp from "../../Components/SectionComp/SectionComp";
+import OneLineSpan from "../../Components/OneLineSpan/OneLineSpan";
 export default function Home() {
   return (
     <>
@@ -18,10 +18,12 @@ export default function Home() {
         ></HoverPicture>
         <SectionComp
           title="1. Update Server"
+          linuxc={true}
           lines={["sudo apt update", "sudo apt upgrade"]}
         ></SectionComp>
         <SectionComp
           title="2. Update Python to at Least Python3.6"
+          linuxc={true}
           lines={[
             "sudo add-apt-repository ppa:deadsnakes/ppa",
             "sudo apt update",
@@ -30,6 +32,7 @@ export default function Home() {
         ></SectionComp>
         <SectionComp
           title="3. Setup Virutal Environment for Python"
+          linuxc={true}
           lines={[
             "sudo apt install python3.6-venv",
             "mkdir /home/eric/env/",
@@ -55,6 +58,7 @@ export default function Home() {
 
         <SectionComp
           title="4. Create or Import Django Project"
+          linuxc={true}
           lines={[
             "pip install Django",
             "django-admin startproject myProjectName",
@@ -63,6 +67,7 @@ export default function Home() {
         ></SectionComp>
         <SectionComp
           title="2. Setup uwsgi"
+          linuxc={true}
           lines={[
             "sudo apt install python3.6-dev",
             "sudo apt install gcc",
@@ -72,6 +77,7 @@ export default function Home() {
         <SectionComp
           title="5. Connect Uwsgi to Django"
           lines={["uwsgi --http :8000 --module djangoProjectName.wsgi"]}
+          linuxc={true}
           desc={
             <div className="guide_bottom_discription">
               <OneLineSpan
@@ -92,6 +98,7 @@ export default function Home() {
         ></SectionComp>
         <SectionComp
           title="6. Setup Nginx"
+          linuxc={true}
           lines={[
             "sudo apt install nginx",
             "sudo vim /etc/nginx/sites-available/djangoProjectName.conf",
@@ -139,6 +146,7 @@ server {
                 <OneLineSpan line="Create uwsgi_params file"></OneLineSpan>
               </div>
               <CodeBlock
+                linuxc={true}
                 lines={["vim /home/eric/djangoProjectName/uwsgi_params"]}
               ></CodeBlock>
               <div className="guide_bottom_discription">
@@ -166,6 +174,7 @@ uwsgi_param  SERVER_NAME        $server_name;
                 <OneLineSpan line="Push changes to nginx, Run this line everytime you change myProjectName.conf"></OneLineSpan>
               </div>
               <CodeBlock
+                linuxc={true}
                 lines={[
                   "sudo ln -s /etc/nginx/sites-available/myDjangoProject.conf /etc/nginx/sites-enabled/",
                 ]}
@@ -208,10 +217,12 @@ uwsgi_param  SERVER_NAME        $server_name;
                 ></OneLineSpan>
 
                 <CodeBlock
+                  linuxc={true}
                   lines={["python manage.py collectstatic"]}
                 ></CodeBlock>
                 <OneLineSpan line="Run below line everyime you change myDjangoProject.conf"></OneLineSpan>
                 <CodeBlock
+                  linuxc={true}
                   lines={["sudo /etc/init.d/nginx restart"]}
                 ></CodeBlock>
               </div>
@@ -224,6 +235,7 @@ uwsgi_param  SERVER_NAME        $server_name;
           desc={
             <>
               <CodeBlock
+                linuxc={true}
                 lines={[
                   "uwsgi --socket djangoProjectName.sock --module djangoProjectName.wsgi --chmod-socket=666",
                 ]}
@@ -239,6 +251,7 @@ uwsgi_param  SERVER_NAME        $server_name;
             <>
               <OneLineSpan line="Run below line in root of django project"></OneLineSpan>
               <CodeBlock
+                linuxc={true}
                 lines={["vim djangoProjectName_uwsgi.ini"]}
               ></CodeBlock>
               <OneLineSpan line="Copy and paste below text into file above"></OneLineSpan>
@@ -267,6 +280,7 @@ daemonize       = /home/eric/uwsgi-emperor.log
               ></BigBlock>
               <OneLineSpan line="Run below line you should see django launch page"></OneLineSpan>
               <CodeBlock
+                linuxc={true}
                 lines={["uwsgi --ini djangoProjectName_uwsgi.ini"]}
               ></CodeBlock>
             </>
@@ -278,6 +292,7 @@ daemonize       = /home/eric/uwsgi-emperor.log
           desc={
             <>
               <CodeBlock
+                linuxc={true}
                 lines={[
                   "cd /home/eric/env/myEnv/",
                   "mkdir vassals",
@@ -286,6 +301,7 @@ daemonize       = /home/eric/uwsgi-emperor.log
               ></CodeBlock>
               <OneLineSpan line="Run below line you should see django launch page"></OneLineSpan>
               <CodeBlock
+                linuxc={true}
                 lines={[
                   "uwsgi --emperor /home/eric/env/myEnv/vassals --uid www-data --gid www-data",
                 ]}
@@ -299,7 +315,8 @@ daemonize       = /home/eric/uwsgi-emperor.log
             <>
               <OneLineSpan line="Create systemd file"></OneLineSpan>
               <CodeBlock
-                lines={["vim /etc/systemd/system/emperor.uwsgi.service"]}
+                linuxc={true}
+                lines={["sudo vim /etc/systemd/system/emperor.uwsgi.service"]}
               ></CodeBlock>
               <OneLineSpan line="Copy and paste below into file"></OneLineSpan>
               <BigBlock
@@ -318,13 +335,14 @@ WantedBy=multi-user.target
               ></BigBlock>
               <OneLineSpan line="Enable uwsgi to start on system boot by running below commands"></OneLineSpan>
               <CodeBlock
+                linuxc={true}
                 lines={[
-                  "systemctl enable emperor.uwsgi.service",
-                  "systemctl start emperor.uwsgi.service",
+                  "sudo systemctl enable emperor.uwsgi.service",
+                  "sudo systemctl start emperor.uwsgi.service",
                 ]}
               ></CodeBlock>
               <OneLineSpan line="Reboot server to make sure everything is working"></OneLineSpan>
-              <CodeBlock lines={["sudo reboot"]}></CodeBlock>
+              <CodeBlock linuxc={true} lines={["sudo reboot"]}></CodeBlock>
             </>
           }
         ></SectionComp>

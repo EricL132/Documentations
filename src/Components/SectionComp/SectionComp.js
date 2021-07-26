@@ -6,7 +6,7 @@ export default function SectionComp(props) {
       {props.lines && (
         <CodeBlock
           lines={props.lines}
-          sudo={props.linuxc}
+          linuxc={props.linuxc}
         ></CodeBlock>
       )}
       {props.desc}

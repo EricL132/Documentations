@@ -1,9 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
-import uwsgiLinux from "./Components/uwsgiLinux/uwsgiLinux";
-import Home from "./Components/Home/Home";
+import uwsgiLinux from "./Pages/uwsgiLinux/uwsgiLinux";
+import Home from "./Pages/Home/Home";
 import {BrowserRouter,Route,Switch} from 'react-router-dom'
-import Gunicorn from "./Components/gunicornLinux/gunicornLunux";
+import Gunicorn from "./Pages/gunicornLinux/gunicornLunux";
 function App() {
   return (
       // <uwsgiLinux></uwsgiLinux>

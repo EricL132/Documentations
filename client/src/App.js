@@ -5,7 +5,7 @@ import uwsgiLinux from "./Pages/uwsgiLinux/uwsgiLinux";
 import Gunicorn from "./Pages/gunicornLinux/gunicornLunux";
 function App() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/project/docs">
             <Switch>
                 <Route path="/uwsgi" exact component={uwsgiLinux}></Route>
                 <Route path="/gunicorn" exact component={Gunicorn}></Route>

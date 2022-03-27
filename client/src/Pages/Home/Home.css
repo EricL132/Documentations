@@ -1,0 +1,9 @@
+.guides_container {
+    display: flex;
+}
+
+@media (max-width: 850px) {
+    .guides_container {
+        flex-direction: column;
+    }
+}

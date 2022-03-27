@@ -1,0 +1,25 @@
+.large_block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    padding-top: 0.8rem;
+}
+
+.large_block_line {
+    margin: 0;
+    text-align: left;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.large_copy {
+    width: 100px;
+    margin-top: 20px;
+}
+
+@media (max-width: 750px) {
+    .large_block {
+        max-width: 100%;
+    }
+}

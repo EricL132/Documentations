@@ -1,0 +1,62 @@
+.code_block_container {
+    box-shadow: var(--code_blocks_shadow);
+    width: fit-content;
+    min-width: 60%;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.code_line_container {
+    padding: 5px 15px;
+    background-color: var(--dark_gray1);
+    display: flex;
+}
+
+.code_line_container:hover {
+    background-color: var(--dark_gray);
+}
+
+.copy_button {
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #212225;
+    color: var(--white_font_color);
+    border: none;
+    border-radius: 5px;
+    padding: 4px 7px;
+}
+
+.copy_button:active {
+    background-color: var(--white_font_color);
+    color: var(--code_blocks) !important;
+}
+
+.guide_span_bottom {
+    margin-bottom: 15px;
+}
+
+.linuxc_sign {
+    margin-right: 10px;
+}
+
+.guide_part_block {
+    position: relative;
+}
+
+@media (max-width: 1050px) {
+    .code_block_container {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 750px) {
+    .code_line_container {
+        flex-direction: column;
+        max-width: 100%;
+    }
+    .copy_button {
+        width: 100px;
+        margin: 15px 0;
+    }
+}

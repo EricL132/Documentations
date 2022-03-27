@@ -14,7 +14,7 @@ export default function BigBlock(props) {
         <div className="code_block_container">
           <div className="code_line_container large_block">
                 <pre className="large_block_line">{props.block}</pre>
-            <button className="copy_button_large_block" onClick={copyLargeBlock}>
+            <button className="copy_button large_copy" onClick={copyLargeBlock}>
               Copy
             </button>
           </div>

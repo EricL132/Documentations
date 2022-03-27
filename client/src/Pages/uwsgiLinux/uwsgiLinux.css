@@ -1,0 +1,16 @@
+.hover_image_containers {
+    cursor: pointer;
+    color: var(--ligher_text_color);
+}
+
+.hover_image_containers:hover > .hover_image_component {
+    display: block;
+}
+
+.guide_part_block_header {
+    font-size: 2rem;
+}
+
+.guide_bottom_discription {
+    margin-top: 1rem;
+}
